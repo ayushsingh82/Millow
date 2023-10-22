@@ -15,9 +15,10 @@ async function main() {
   const [buyer, seller, inspector, lender] = await ethers.getSigners()
 
   // Deploy Real Estate
-  const RealEstate = await ethers.getContractFactory('RealEstate')
+  const RealEstate = await ethers.getContractFactory('RealEstate');
   const realEstate = await RealEstate.deploy()
   await realEstate.deployed()
+
 
   console.log(`Deployed Real Estate Contract at: ${realEstate.address}`)
   console.log(`Minting 3 properties...\n`)
@@ -25,6 +26,8 @@ async function main() {
   for (let i = 0; i < 3; i++) {
     const transaction = await realEstate.connect(seller).mint(`https://ipfs.io/ipfs/QmQVcpsjrA6cr1iJjZAodYwmPekYgbnXGo4DFubJiLc2EB/${i + 1}.json`)
     await transaction.wait()
+    const totalsuplly = await  realEstate.connect(seller).tokenURI(i+1);
+    console.log(totalsuplly)
   }
 
   // Deploy Escrow
