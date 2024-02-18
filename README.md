@@ -30,6 +30,7 @@ In a separate terminal execute:
 ### 7. Start frontend
 `$ npm run start`
 
-![property listed] ("C:\Users\Ayush\Downloads\prop2.jpg")
+![property listed] (file:///C:/Users/Ayush/Downloads/prop2.jpg)
+
 
 ![property complete description) ("C:\Users\Ayush\Downloads\prop1.jpg")
